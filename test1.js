@@ -14,7 +14,7 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 14, 19, 23, 25, 27, 31]);
+const set = new Set([2, 3, 4, 5, 11, 17, 23, 29, 35, 41, 47]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 let userChangedInput = false;
@@ -26,34 +26,52 @@ const slides = [
   { id: 'fourthSlide', flag: 'hasShownFourthSlide', done: 'fourthSlideAnimationCompleted', line: '#fourthSlide .fourth-vertical-line' },
   { id: 'dtdHome', flag: 'hasShownDtdHome', done: 'dtdHomeAnimationCompleted' },
   { id: 'fifthnewSlide', flag: 'hasShownFifthnewSlide', done: 'fifthnewSlideAnimationCompleted', line: '#fifthnewSlide .vertical-line' },
-  { id: 'fifthSlide', flag: 'hasShownFifthSlide', done: 'fifthSlideAnimationCompleted', line: '#fifthSlide .fifth-vertical-line' },
-  { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted', line: '#detailsSlide .details-vertical-line' },
-  { id: 'tenSlide', flag: 'hasShownTenSlide', done: 'tenSlideAnimationCompleted', line: '#tenSlide .ten-vertical-line' },
-  { id: 'elevenSlide', flag: 'hasShownElevenSlide', done: 'elevenSlideAnimationCompleted', line: '#elevenSlide .eleven-vertical-line' },
-  { id: 'tweleveSlide', flag: 'hasShownTweleveSlide', done: 'tweleveSlideAnimationCompleted', line: '#tweleveSlide .tweleve-vertical-line' },
+  { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted' },
+  { id: 'new-detailsSlide', flag: 'hasShownNew-detailsSlide', done: 'new-detailsSlideAnimationCompleted', line: '#new-detailsSlide .details-vertical-line' },
   { id: 'twelevenewSlide', flag: 'hasShownTweleveNewSlide', done: 'twelevenewSlideAnimationCompleted' },
   { id: 'thirteenSlide', flag: 'hasShownThirteenSlide', done: 'thirteenSlideAnimationCompleted', line: '#thirteenSlide .thirteen-vertical-line' },
   { id: 'bvdHome', flag: 'hasShownBvdHome', done: 'bvdHomeAnimationCompleted' },
   { id: 'nineSlide', flag: 'hasShownNineSlide', done: 'nineSlideAnimationCompleted', line: '#nineSlide .nine-vertical-line' },
   { id: 'detailsSlidenew9', flag: 'hasShownDetailsSlidenew9', done: 'detailsSlidenew9AnimationCompleted', line: '#detailsSlidenew9 .details-vertical-line' },
+  { id: 'detailsSlidenew1', flag: 'hasShownDetailsSlidenew1', done: 'detailsSlidenew1AnimationCompleted' },
   { id: 'BDVModel', flag: 'hasShownDetailsBDVModel', done: 'BDVModelAnimationCompleted' },
   { id: 'fifteenSlide', flag: 'hasShownFifteenSlide', done: 'fifteenSlideAnimationCompleted', line: '#fifteenSlide .fifteen-vertical-line' },
   { id: 'sdtdHome', flag: 'hasShownSdtdHome', done: 'sdtdHomeAnimationCompleted' },
   { id: 'sixSlide', flag: 'hasShownSixSlide', done: 'sixSlideAnimationCompleted', line: '#sixSlide .six-vertical-line' },
   { id: 'detailsSlidenew', flag: 'hasShownDetailsSlidenew', done: 'detailsSlidenewAnimationCompleted', line: '#detailsSlidenew .details-vertical-line' },
+  { id: 'detailsSlidenew2', flag: 'hasShownDetailsSlidenew2', done: 'detailsSlidenew2AnimationCompleted' },
+  { id: 'SDTDModel', flag: 'hasShownDetailsSDTDModel', done: 'SDTDModelAnimationCompleted' },
   { id: 'fourteenSlide', flag: 'hasShownFourteenSlide', done: 'fourteenSlideAnimationCompleted', line: '#fourteenSlide .fourteen-vertical-line' },
   { id: 'sdtdcHome', flag: 'hasShownSdtdcHome', done: 'sdtdcHomeAnimationCompleted' },
-  { id: 'sevenSlide', flag: 'hasShownSevenSlide', done: 'sevenSlideAnimationCompleted', line: '#sevenSlide .seven-vertical-line' },
+  { id: 'new-sixSlide', flag: 'hasShownNew-sixSlide', done: 'new-sixSlideAnimationCompleted', line: '#new-sixSlide .six-vertical-line' },
+  { id: 'detailsSlidenew3', flag: 'hasShownDetailsSlidenew3', done: 'detailsSlidenew3AnimationCompleted', line: '#detailsSlidenew3 .details-vertical-line' },
+  { id: 'detailsSlidenew4', flag: 'hasShownDetailsSlidenew4', done: 'detailsSlidenew4AnimationCompleted' },
+  { id: 'SDTDCModel', flag: 'hasShownDetailsSDTDCModel', done: 'SDTDCModelAnimationCompleted' },
+  { id: 'fourteenSlide-new', flag: 'hasShownFourteenSlide-new', done: 'fourteenSlide-newAnimationCompleted', line: '#fourteenSlide-new .fourteen-vertical-line' },
   { id: 'ytypeHome', flag: 'hasShownYtypeHome', done: 'ytypeHomeAnimationCompleted' },
   { id: 'eightSlide', flag: 'hasShownEightSlide', done: 'eightSlideAnimationCompleted', line: '#eightSlide .eight-vertical-line' },
-  { id: 'bypassHome', flag: 'hasShownBypassHome', done: 'bypassHomeAnimationCompleted' },
-  { id: 'nineteenthSlide', flag: 'hasShownNineteenthSlide', done: 'nineteenthSlideAnimationCompleted', line: '#nineteenthSlide .nineteenth-vertical-line' },
-  { id: 'twentiethSlide', flag: 'hasShownTwentiethSlide', done: 'twentiethSlideAnimationCompleted', line: '#twentiethSlide .twentieth-vertical-line' },
-  { id: 'twentiethoneSlide', flag: 'hasShownTwentiethoneSlide', done: 'twentiethoneSlideAnimationCompleted', line: '#twentiethoneSlide .twentiethone-vertical-line' },
+  { id: 'detailsSlidenew5', flag: 'hasShownDetailsSlidenew5', done: 'detailsSlidenew5AnimationCompleted', line: '#detailsSlidenew5 .details-vertical-line' },
+  { id: 'detailsSlidenew6', flag: 'hasShownDetailsSlidenew6', done: 'detailsSlidenew6AnimationCompleted' },
+  { id: 'YTYPEModel', flag: 'hasShownDetailsYTYPEModel', done: 'YTYPEModelAnimationCompleted' },
+  { id: 'fourteenSlide-new1', flag: 'hasShownFourteenSlide-new1', done: 'fourteenSlide-new1AnimationCompleted', line: '#fourteenSlide-new1 .fourteen-vertical-line' },
   { id: 'scaleHome', flag: 'hasShownScaleHome', done: 'scaleHomeAnimationCompleted' },
   { id: 'sixteenthSlide', flag: 'hasShownSixteenthSlide', done: 'sixteenthSlideAnimationCompleted', line: '#sixteenthSlide .sixteenth-vertical-line' },
   { id: 'seventeenthSlide', flag: 'hasShownSeventeenthSlide', done: 'seventeenthSlideAnimationCompleted', line: '#seventeenthSlide .seventeenth-vertical-line' },
-  { id: 'eighteenSlide', flag: 'hasShownEighteenSlide', done: 'eighteenSlideAnimationCompleted', line: '#eighteenSlide .eighteen-vertical-line' },
+  { id: 'seventeenthSlide-new', flag: 'hasShownSeventeenthSlide-new', done: 'seventeenthSlide-newAnimationCompleted', line: '#seventeenthSlide-new .seventeenth-vertical-line' },
+  { id: 'SCALEModel', flag: 'hasShownDetailsSCALEModel', done: 'SCALEModelAnimationCompleted' },
+  { id: 'fourteenSlide-new2', flag: 'hasShownFourteenSlide-new2', done: 'fourteenSlide-new2AnimationCompleted', line: '#fourteenSlide-new2 .fourteen-vertical-line' },
+  { id: 'lsvHome', flag: 'hasShownLsvHome', done: 'lsvHomeAnimationCompleted' },
+  { id: 'new-nineteenthSlide', flag: 'hasShownNew-nineteenthSlide', done: 'new-nineteenthSlideAnimationCompleted', line: '#new-nineteenthSlide .new-nineteenth-vertical-line' },
+  { id: 'new-twentiethSlide', flag: 'hasShownNew-twentiethSlide', done: 'new-twentiethSlideAnimationCompleted', line: '#new-twentiethSlide .new-twentieth-vertical-line' },
+  { id: 'new1-twentiethSlide', flag: 'hasShownNew1-twentiethSlide', done: 'new1-twentiethSlideAnimationCompleted', line: '#new1-twentiethSlide .new1-twentieth-vertical-line' },
+  { id: 'LSVModel', flag: 'hasShownDetailsLSVModel', done: 'LSVModelAnimationCompleted' },
+  { id: 'fourteenSlide-new3', flag: 'hasShownFourteenSlide-new3', done: 'fourteenSlide-new3AnimationCompleted', line: '#fourteenSlide-new3 .fourteen-vertical-line' },
+  { id: 'bypassHome', flag: 'hasShownBypassHome', done: 'bypassHomeAnimationCompleted' },
+  { id: 'nineteenthSlide', flag: 'hasShownNineteenthSlide', done: 'nineteenthSlideAnimationCompleted', line: '#nineteenthSlide .nineteenth-vertical-line' },
+  { id: 'twentiethSlide', flag: 'hasShownTwentiethSlide', done: 'twentiethSlideAnimationCompleted', line: '#twentiethSlide .twentieth-vertical-line' },
+  { id: 'twentiethSlide-new', flag: 'hasShownTwentiethSlide-new', done: 'twentiethSlide-newAnimationCompleted', line: '#twentiethSlide-new .twentieth-vertical-line' },
+  { id: 'BYPASSModel', flag: 'hasShownDetailsBYPASSModel', done: 'BYPASSModelAnimationCompleted' },
+  { id: 'fourteenSlide-new4', flag: 'hasShownFourteenSlide-new4', done: 'fourteenSlide-new4AnimationCompleted', line: '#fourteenSlide-new4 .fourteen-vertical-line' },
   { id: 'thankyou', flag: 'hasShownThankyou', done: 'thankyouAnimationCompleted' },
 
 ].map(s => ({
@@ -398,18 +416,18 @@ function scrollToPage(page) {
   }, 800);
 }
 
-
 const pageMapping = {
   '.second-slide-new': 2,
   '.second-slide': 3,
   '.fourth-slide': 4,
   '.dtd-home': 5,
-  '.bvd-home': 14,
-  '.sdtd-home': 19,
+  '.bvd-home': 11,
+  '.sdtd-home': 17,
   '.sdtd-c-home': 23,
-  '.ytypehome': 25,
-  '.bypasshome': 27,
-  '.scalehome': 31,
+  '.ytypehome': 29,
+   '.scalehome': 35,
+  '.lsvhome': 41,
+  '.bypasshome': 47
 };
 
 
@@ -500,14 +518,19 @@ window.addEventListener("scroll", function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+const buttonPage = document.querySelector('.details-description1 button');
+  buttonPage.style.display = 'none';
   const valveImage = document.getElementById('img-center');
   const detailsDescription = document.querySelector('.details-description1');
   const featureList = detailsDescription.querySelector('.feature-list');
   const diverterTitle = document.querySelector('.standard-diverter-text');
-
+ 
+  const infoBubble = document.getElementById('speechBubbleWrapper');
+  const dtdAnimation = document.querySelector(".segment-black");
+  const needhide = document.querySelector(".need-hide");
   const segments = document.querySelectorAll('.segment');
   const labels = document.querySelectorAll('.segment-label');
-
+ 
   const valveMap = {
     'dtd': {
       image: './images/DTDnew.png',
@@ -557,14 +580,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'It is available for Exec.2 and dairy versions'
       ]
     },
-    'bypass': {
-      image: './images/bypass.webp',
-      title: 'By Pass valve',
-      description: [
-        'By-Pass Valve (BPV) is also called as “Air Only Diverter” specifically designed to divert the air in pneumatic conveying systems.',
-        'This is typically used in Lean Phase Pneumatic Conveying Systems for both pressure and vacuum conveying applications.'
-      ]
-    },
     'scale': {
       image: './images/Scale valve.webp',
       title: 'Scale Valve',
@@ -572,28 +587,43 @@ document.addEventListener('DOMContentLoaded', function () {
         'Scale Valve (SV-A  also known as a Bottom Diverter or Fill Vent Diverter) is a pneumatically actuated diversion valve designed to divert bulk solids during  pneumatic transport.   ',
         'It is designed for applications like dosing, weighing, batching and filling.'
       ]
-    }
+    },
+    'lsv': {
+      image: './images/Scale valve.webp',
+      title: 'Scale Valve',
+      description: [
+        'Scale Valve (SV-A  also known as a Bottom Diverter or Fill Vent Diverter) is a pneumatically actuated diversion valve designed to divert bulk solids during  pneumatic transport.   ',
+        'It is designed for applications like dosing, weighing, batching and filling.'
+      ]
+    },
+    'bypass': {
+      image: './images/bypass.png',
+      title: 'By Pass valve',
+      description: [
+        'By-Pass Valve (BPV) is also called as “Air Only Diverter” specifically designed to divert the air in pneumatic conveying systems.',
+        'This is typically used in Lean Phase Pneumatic Conveying Systems for both pressure and vacuum conveying applications.'
+      ]
+    },
   };
-
+ 
   let bool = true
-
+ 
   function setActiveSegment(segmentName) {
+    buttonPage.style.display = 'block';
+    needhide.style.display = 'none';
+    diverterTitle.style.display = 'flex';
+    diverterTitle.style.visibility = 'visible';
+    infoBubble.style.display = 'none';
+    dtdAnimation.classList.remove('popup')
     segments.forEach(seg => {
       seg.classList.toggle('active', seg.dataset.segment === segmentName);
     });
-
-    if (bool) {
-      const blackSegment = document.querySelector('.segment-black');
-      if (blackSegment) blackSegment.style.transform = 'scale(1.05)';
-      bool = false
-    } else {
-      const blackSegment = document.querySelector('.segment-black');
-      if (blackSegment) blackSegment.style.transform = 'scale(1)';
-    }
-
+ 
+ 
     const valve = valveMap[segmentName];
     if (valve) {
       valveImage.src = valve.image;
+      valveImage.style.height = "80%";
       diverterTitle.innerHTML = `<div class="red-dot"></div> ${valve.title}`;
       featureList.innerHTML = '';
       valve.description.forEach(item => {
@@ -604,22 +634,48 @@ document.addEventListener('DOMContentLoaded', function () {
       detailsDescription.style.display = 'block';
     }
   }
-
+ 
   labels.forEach(label => {
     label.addEventListener('click', () => {
       const segmentName = label.dataset.segment;
       setActiveSegment(segmentName);
     });
   });
-
+ 
   segments.forEach(segment => {
     segment.addEventListener('click', () => {
       const segmentName = segment.dataset.segment;
       setActiveSegment(segmentName);
     });
   });
+ 
+  buttonPage.addEventListener('click', () => {
+    segments.forEach(seg => {
+      if (seg.classList.contains('active')) {
+        const segmentName = seg.dataset.segment;
+        if (segmentName === 'dtd') {
+          scrollToPage(5);
+        } else if (segmentName === 'bdv') {
+          scrollToPage(11);
+        } else if (segmentName === 'sdtd') {
+          scrollToPage(17);
+        } else if (segmentName === 'sdtd-c') {
+          scrollToPage(23);
+        } else if (segmentName === 'ytype') {
+          scrollToPage(29);
+        } else if (segmentName === 'scale') {
+          scrollToPage(35);
+        } else if (segmentName === 'lsv') {
+          scrollToPage(41);
+        } else if (segmentName === 'bypass') {
+          scrollToPage(47);
+        }
+      }
+    });
+  });
+ 
 
-  setActiveSegment('dtd');
+  // setActiveSegment('dtd');
 
 
   const features = [
@@ -809,6 +865,105 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// sdtd features
+
+  const featuresSDTC = [
+    "Housing, Drum & End Covers in Aluminum using High Quality Gravity Die Casting Process",
+    "Product Contact Surface in Stainless Steel 316L",
+    "Single Tunnel",
+    "Pneumatic Actuator Operated",
+    "Can be Installed in any Orientation",
+    "No External Moving Parts",
+    "Easy to Maintain",
+    "ATEX Approved",
+  ];
+
+  const optionsSDTC = [
+    "High Temperature Modification",
+    "ATEX / IECEX Rated Electrical Components",
+    "SDTD - Hard Chrome Coating on Product Contact Surface",
+    "SDTD - Tungsten Carbide Coating on Product Contact Surface",
+    "SDTD - Hardox Liner",
+  ];
+
+  const featureSDTC = document.getElementById('sdtc_Feature');
+  const optionSDTC = document.getElementById('sdtc_Option');
+
+  featuresSDTC.forEach((featur) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+    featureSDTC.appendChild(li);
+  });
+
+
+  optionsSDTC.forEach((feature) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+    optionSDTC.appendChild(li);
+  });
+
+// scale valve features
+
+  const featuresSV = [
+    "Compact Design",
+    "Optimal Sealing",
+    "Minimal Process Loss",
+    "Pneumatic Actuator Operated",
+    "Simple Construction with Minimal Contact Area",
+    "Available in Cast Iron and Stainless Steel 304 construction",
+  ];
+
+  const optionsSV = [
+    "ATEX / IECEX Rated Electrical Components",
+  ];
+
+  const featureSV = document.getElementById('sv_Feature');
+  const optionSV = document.getElementById('sv_Options');
+
+  featuresSV.forEach((featur) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+    featureSV.appendChild(li);
+  });
+
+
+  optionsSV.forEach((feature) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+    optionSV.appendChild(li);
+  });
+
+// by pass valve features
+
+  const featuresBPV = [
+    "Construction in Cast Aluminum",
+    "Economical Quality Product",
+    "Can be installed in any positions",
+    "Pneumatic Cylinder Operated",
+  ];
+
+  const optionsBPV = [
+    "MOC in Stainless Steel 304",
+    "ATEX / IECEX Rated Electrical Components",
+  ];
+
+  const featureBPV = document.getElementById('bpv_Features');
+  const optionBPV = document.getElementById('bpv_Options');
+
+  featuresBPV.forEach((featur) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+    featureBPV.appendChild(li);
+  });
+
+
+  optionsBPV.forEach((feature) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+    optionBPV.appendChild(li);
+  });
+
+
 
 let pagelatest = 0;
 function playAudioForPage(pageNumber) {
@@ -991,7 +1146,7 @@ function animation(page) {
       duration: 0.8,
       ease: "power3.out",
       stagger: 0.3,
-      delay: 0.5,
+      delay: 0.2,
     });
   } else if (page == "3" || page == "6") {
 
@@ -1033,7 +1188,7 @@ function animation(page) {
   } else if (animatedPages.includes(page)) {
     const listDivs = {
       4: 'fourthSlide',
-      7: 'fifthSlide',
+      // 7: 'fifthSlide',
       8: 'detailsSlide',
       11: 'tweleveSlide',
       16: 'detailsSlidenew9',
@@ -1247,11 +1402,11 @@ explodedBtn.forEach(expolodebtn => {
     if (dataId === "1") {
       DTDexplodedModel.classList.remove("hidden");
       DTDfunctionModel.classList.add("hidden");
-      playFirstAnimation(DTDexplodedModel,5.75 );
+      playFirstAnimation(DTDexplodedModel, 5.75);
     } else {
       explodedModel.classList.remove("hidden");
       functionModel.classList.add("hidden");
-      playFirstAnimation(explodedModel,7.80);
+      playFirstAnimation(explodedModel, 7.80);
     }
   });
 });
@@ -1292,7 +1447,7 @@ document.addEventListener('visibilitychange', () => {
     setTimeout(() => {
       userChangedInput = false;
     }, 500);
-    }
+  }
 });
 
 // When window resizes, mark userChangedInput true
@@ -1316,33 +1471,33 @@ window.addEventListener('resize', () => {
 
 window.addEventListener("load", () => {
   const preloader = document.getElementById("globalPreloader");
-  const models     = Array.from(document.querySelectorAll("model-viewer"));
+  const models = Array.from(document.querySelectorAll("model-viewer"));
 
   const modelPromises = models.map(model =>
     new Promise(resolve => {
-      if (model.loaded) return resolve();      
+      if (model.loaded) return resolve();
       model.addEventListener("load", resolve, { once: true });
-      setTimeout(resolve, 5000);              
+      setTimeout(resolve, 5000);
     })
   );
 
-  const timeoutFallback = new Promise(resolve => setTimeout(resolve, 5000)); 
+  const timeoutFallback = new Promise(resolve => setTimeout(resolve, 5000));
 
   Promise.race([Promise.all(modelPromises), timeoutFallback]).then(() => {
 
-  setTimeout(() => {
-     DTDfunctionModel.classList.add("hidden");
-    functionModel.classList.add("hidden");
+    setTimeout(() => {
+      DTDfunctionModel.classList.add("hidden");
+      functionModel.classList.add("hidden");
 
-    preloader.style.transition = "opacity 0.5s ease";
-    preloader.style.opacity    = "0";
-    setTimeout(() => preloader.style.display = "none", 2000);
+      preloader.style.transition = "opacity 0.5s ease";
+      preloader.style.opacity = "0";
+      setTimeout(() => preloader.style.display = "none", 2000);
     }, 2000);
-   
+
   });
 
   // pageInput.addEventListener("change", ()=> {
-    
+
   //   if (parseInt(pageInput.value) == 12) {
   //     const models = document.querySelectorAll("model-viewer");
   //     models.forEach(model => {
@@ -1351,5 +1506,5 @@ window.addEventListener("load", () => {
   //   }
   // });
 
-  pageInput.addEventListener("input", () => {userChangedInput = false;})
+  pageInput.addEventListener("input", () => { userChangedInput = false; })
 });
