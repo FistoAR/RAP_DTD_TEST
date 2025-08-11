@@ -14,7 +14,7 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 11, 17, 23, 29, 35, 41, 47]);
+const set = new Set([2, 3, 4, 5, 11, 17, 23, 29, 30, 36, 37]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 let userChangedInput = false;
@@ -26,7 +26,7 @@ const slides = [
   { id: 'fourthSlide', flag: 'hasShownFourthSlide', done: 'fourthSlideAnimationCompleted', line: '#fourthSlide .fourth-vertical-line' },
   { id: 'dtdHome', flag: 'hasShownDtdHome', done: 'dtdHomeAnimationCompleted' },
   { id: 'fifthnewSlide', flag: 'hasShownFifthnewSlide', done: 'fifthnewSlideAnimationCompleted', line: '#fifthnewSlide .vertical-line' },
-  { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted' },
+  { id: 'detailsSlide', flag: 'hasShownDetailsSlide', done: 'detailsSlideAnimationCompleted', line: '#detailsSlide .details-vertical-line' },
   { id: 'new-detailsSlide', flag: 'hasShownNew-detailsSlide', done: 'new-detailsSlideAnimationCompleted', line: '#new-detailsSlide .details-vertical-line' },
   { id: 'twelevenewSlide', flag: 'hasShownTweleveNewSlide', done: 'twelevenewSlideAnimationCompleted' },
   { id: 'thirteenSlide', flag: 'hasShownThirteenSlide', done: 'thirteenSlideAnimationCompleted', line: '#thirteenSlide .thirteen-vertical-line' },
@@ -49,27 +49,27 @@ const slides = [
   { id: 'SDTDCModel', flag: 'hasShownDetailsSDTDCModel', done: 'SDTDCModelAnimationCompleted' },
   { id: 'fourteenSlide-new', flag: 'hasShownFourteenSlide-new', done: 'fourteenSlide-newAnimationCompleted', line: '#fourteenSlide-new .fourteen-vertical-line' },
   { id: 'ytypeHome', flag: 'hasShownYtypeHome', done: 'ytypeHomeAnimationCompleted' },
-  { id: 'eightSlide', flag: 'hasShownEightSlide', done: 'eightSlideAnimationCompleted', line: '#eightSlide .eight-vertical-line' },
-  { id: 'detailsSlidenew5', flag: 'hasShownDetailsSlidenew5', done: 'detailsSlidenew5AnimationCompleted', line: '#detailsSlidenew5 .details-vertical-line' },
-  { id: 'detailsSlidenew6', flag: 'hasShownDetailsSlidenew6', done: 'detailsSlidenew6AnimationCompleted' },
-  { id: 'YTYPEModel', flag: 'hasShownDetailsYTYPEModel', done: 'YTYPEModelAnimationCompleted' },
-  { id: 'fourteenSlide-new1', flag: 'hasShownFourteenSlide-new1', done: 'fourteenSlide-new1AnimationCompleted', line: '#fourteenSlide-new1 .fourteen-vertical-line' },
+  // { id: 'eightSlide', flag: 'hasShownEightSlide', done: 'eightSlideAnimationCompleted', line: '#eightSlide .eight-vertical-line' },
+  // { id: 'detailsSlidenew5', flag: 'hasShownDetailsSlidenew5', done: 'detailsSlidenew5AnimationCompleted', line: '#detailsSlidenew5 .details-vertical-line' },
+  // { id: 'detailsSlidenew6', flag: 'hasShownDetailsSlidenew6', done: 'detailsSlidenew6AnimationCompleted' },
+  // { id: 'YTYPEModel', flag: 'hasShownDetailsYTYPEModel', done: 'YTYPEModelAnimationCompleted' },
+  // { id: 'fourteenSlide-new1', flag: 'hasShownFourteenSlide-new1', done: 'fourteenSlide-new1AnimationCompleted', line: '#fourteenSlide-new1 .fourteen-vertical-line' },
   { id: 'scaleHome', flag: 'hasShownScaleHome', done: 'scaleHomeAnimationCompleted' },
   { id: 'sixteenthSlide', flag: 'hasShownSixteenthSlide', done: 'sixteenthSlideAnimationCompleted', line: '#sixteenthSlide .sixteenth-vertical-line' },
   { id: 'seventeenthSlide', flag: 'hasShownSeventeenthSlide', done: 'seventeenthSlideAnimationCompleted', line: '#seventeenthSlide .seventeenth-vertical-line' },
-  { id: 'seventeenthSlide-new', flag: 'hasShownSeventeenthSlide-new', done: 'seventeenthSlide-newAnimationCompleted', line: '#seventeenthSlide-new .seventeenth-vertical-line' },
+  { id: 'seventeenthSlide-new', flag: 'hasShownSeventeenthSlide-new', done: 'seventeenthSlide-newAnimationCompleted' },
   { id: 'SCALEModel', flag: 'hasShownDetailsSCALEModel', done: 'SCALEModelAnimationCompleted' },
   { id: 'fourteenSlide-new2', flag: 'hasShownFourteenSlide-new2', done: 'fourteenSlide-new2AnimationCompleted', line: '#fourteenSlide-new2 .fourteen-vertical-line' },
   { id: 'lsvHome', flag: 'hasShownLsvHome', done: 'lsvHomeAnimationCompleted' },
-  { id: 'new-nineteenthSlide', flag: 'hasShownNew-nineteenthSlide', done: 'new-nineteenthSlideAnimationCompleted', line: '#new-nineteenthSlide .new-nineteenth-vertical-line' },
-  { id: 'new-twentiethSlide', flag: 'hasShownNew-twentiethSlide', done: 'new-twentiethSlideAnimationCompleted', line: '#new-twentiethSlide .new-twentieth-vertical-line' },
-  { id: 'new1-twentiethSlide', flag: 'hasShownNew1-twentiethSlide', done: 'new1-twentiethSlideAnimationCompleted', line: '#new1-twentiethSlide .new1-twentieth-vertical-line' },
-  { id: 'LSVModel', flag: 'hasShownDetailsLSVModel', done: 'LSVModelAnimationCompleted' },
-  { id: 'fourteenSlide-new3', flag: 'hasShownFourteenSlide-new3', done: 'fourteenSlide-new3AnimationCompleted', line: '#fourteenSlide-new3 .fourteen-vertical-line' },
+  // { id: 'new-nineteenthSlide', flag: 'hasShownNew-nineteenthSlide', done: 'new-nineteenthSlideAnimationCompleted', line: '#new-nineteenthSlide .new-nineteenth-vertical-line' },
+  // { id: 'new-twentiethSlide', flag: 'hasShownNew-twentiethSlide', done: 'new-twentiethSlideAnimationCompleted', line: '#new-twentiethSlide .new-twentieth-vertical-line' },
+  // { id: 'new1-twentiethSlide', flag: 'hasShownNew1-twentiethSlide', done: 'new1-twentiethSlideAnimationCompleted' },
+  // { id: 'LSVModel', flag: 'hasShownDetailsLSVModel', done: 'LSVModelAnimationCompleted' },
+  // { id: 'fourteenSlide-new3', flag: 'hasShownFourteenSlide-new3', done: 'fourteenSlide-new3AnimationCompleted', line: '#fourteenSlide-new3 .fourteen-vertical-line' },
   { id: 'bypassHome', flag: 'hasShownBypassHome', done: 'bypassHomeAnimationCompleted' },
   { id: 'nineteenthSlide', flag: 'hasShownNineteenthSlide', done: 'nineteenthSlideAnimationCompleted', line: '#nineteenthSlide .nineteenth-vertical-line' },
   { id: 'twentiethSlide', flag: 'hasShownTwentiethSlide', done: 'twentiethSlideAnimationCompleted', line: '#twentiethSlide .twentieth-vertical-line' },
-  { id: 'twentiethSlide-new', flag: 'hasShownTwentiethSlide-new', done: 'twentiethSlide-newAnimationCompleted', line: '#twentiethSlide-new .twentieth-vertical-line' },
+  { id: 'twentiethSlide-new', flag: 'hasShownTwentiethSlide-new', done: 'twentiethSlide-newAnimationCompleted' },
   { id: 'BYPASSModel', flag: 'hasShownDetailsBYPASSModel', done: 'BYPASSModelAnimationCompleted' },
   { id: 'fourteenSlide-new4', flag: 'hasShownFourteenSlide-new4', done: 'fourteenSlide-new4AnimationCompleted', line: '#fourteenSlide-new4 .fourteen-vertical-line' },
   { id: 'thankyou', flag: 'hasShownThankyou', done: 'thankyouAnimationCompleted' },
@@ -107,11 +107,11 @@ textBottom?.addEventListener('transitionend', () => {
   }, 500);
 
 
-  if (isScrollingDown && !userChangedInput) {
-    setTimeout(() => {
-      scrollToPage(2);
-    }, 600);
-  }
+  // if (isScrollingDown && !userChangedInput) {
+  //   setTimeout(() => {
+  //     scrollToPage(2);
+  //   }, 600);
+  // }
 
 });
 
@@ -425,9 +425,9 @@ const pageMapping = {
   '.sdtd-home': 17,
   '.sdtd-c-home': 23,
   '.ytypehome': 29,
-   '.scalehome': 35,
-  '.lsvhome': 41,
-  '.bypasshome': 47
+  '.scalehome': 30,
+  '.lsvhome': 36,
+  '.bypasshome': 37
 };
 
 
@@ -445,39 +445,39 @@ pageInput?.addEventListener('change', e => {
 });
 
 
-const videoContainers = document.querySelectorAll(".video-container");
+// const videoContainers = document.querySelectorAll(".video-container");
 
-videoContainers.forEach(container => {
-  const video = container.querySelector(".main-video");
-  const magnifier = container.querySelector(".magnifier");
-  const zoomedVideo = container.querySelector(".zoomed-video");
+// videoContainers.forEach(container => {
+//   const video = container.querySelector(".main-video");
+//   const magnifier = container.querySelector(".magnifier");
+//   const zoomedVideo = container.querySelector(".zoomed-video");
 
-  video.addEventListener("play", () => zoomedVideo.play());
-  video.addEventListener("pause", () => zoomedVideo.pause());
-  video.addEventListener("timeupdate", () => {
-    zoomedVideo.currentTime = video.currentTime;
-  });
+//   video.addEventListener("play", () => zoomedVideo.play());
+//   video.addEventListener("pause", () => zoomedVideo.pause());
+//   video.addEventListener("timeupdate", () => {
+//     zoomedVideo.currentTime = video.currentTime;
+//   });
 
-  container.addEventListener("mousemove", (e) => {
-    const { left, top, width, height } = container.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
+//   container.addEventListener("mousemove", (e) => {
+//     const { left, top, width, height } = container.getBoundingClientRect();
+//     const x = e.clientX - left;
+//     const y = e.clientY - top;
 
-    magnifier.style.left = `${x}px`;
-    magnifier.style.top = `${y}px`;
-    magnifier.style.display = "block";
+//     magnifier.style.left = `${x}px`;
+//     magnifier.style.top = `${y}px`;
+//     magnifier.style.display = "block";
 
-    const scale = 2;
-    zoomedVideo.style.width = `${width * scale}px`;
-    zoomedVideo.style.height = `${height * scale}px`;
-    zoomedVideo.style.left = `-${x * scale - magnifier.offsetWidth / 2}px`;
-    zoomedVideo.style.top = `-${y * scale - magnifier.offsetHeight / 2}px`;
-  });
+//     const scale = 2;
+//     zoomedVideo.style.width = `${width * scale}px`;
+//     zoomedVideo.style.height = `${height * scale}px`;
+//     zoomedVideo.style.left = `-${x * scale - magnifier.offsetWidth / 2}px`;
+//     zoomedVideo.style.top = `-${y * scale - magnifier.offsetHeight / 2}px`;
+//   });
 
-  container.addEventListener("mouseleave", () => {
-    magnifier.style.display = "none";
-  });
-});
+//   container.addEventListener("mouseleave", () => {
+//     magnifier.style.display = "none";
+//   });
+// });
 
 
 
@@ -518,19 +518,19 @@ window.addEventListener("scroll", function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-const buttonPage = document.querySelector('.details-description1 button');
+  const buttonPage = document.querySelector('.details-description1 button');
   buttonPage.style.display = 'none';
   const valveImage = document.getElementById('img-center');
   const detailsDescription = document.querySelector('.details-description1');
   const featureList = detailsDescription.querySelector('.feature-list');
   const diverterTitle = document.querySelector('.standard-diverter-text');
- 
+
   const infoBubble = document.getElementById('speechBubbleWrapper');
   const dtdAnimation = document.querySelector(".segment-black");
   const needhide = document.querySelector(".need-hide");
   const segments = document.querySelectorAll('.segment');
   const labels = document.querySelectorAll('.segment-label');
- 
+
   const valveMap = {
     'dtd': {
       image: './images/DTDnew.png',
@@ -540,17 +540,19 @@ const buttonPage = document.querySelector('.details-description1 button');
         'They support both pressure and vacuum conveying applications',
         'Sealing options include static silicone (up to 2 bar) and dynamic silicone (up to 6 bar) based on pressure needs',
         'Available in sizes ranging from 50 mm to 200 mm for versatile system integration'
-      ]
+      ],
+      audio:'./audios/audio1.mp3'
     },
     'bdv': {
-      image: './images/BDV.png',
+      image: './images/BDV_Product.webp',
       title: 'BDV Diverter',
       description: [
         'BDVs divert or converge dry bulk materials in pneumatic conveying systems',
         'Suitable for pressure (up to 6 bar g) and vacuum (-0.5 bar g) applications',
         'Seal options: Polyurethane, Viton, and Silicone',
         'Available in sizes from 65 mm to 250 mm'
-      ]
+      ],
+      audio:'./audios/audio11.mp3'
     },
     'sdtd': {
       image: './images/SDTD.png',
@@ -560,17 +562,19 @@ const buttonPage = document.querySelector('.details-description1 button');
         'Works with both pressure and vacuum conveying',
         'Seal options: Static (1.5 bar) and Dynamic (6 bar)',
         'Available in sizes from 150 mm to 300 mm'
-      ]
+      ],
+      audio:'./audios/audio17.mp3'
     },
     'sdtd-c': {
-      image: './images/SDTD.png',
+      image: './images/SDTD-C.webp',
       title: 'Single Drum Type Diverter (SDTD-C)',
       description: [
         'SDTD diverts dry bulk materials in pneumatic conveying systems',
         'Works with both pressure and vacuum conveying',
         'Seal options: Static (1.5 bar) and Dynamic (6 bar)',
         'Available in sizes from 150 mm to 300 mm'
-      ]
+      ],
+      audio:'./audios/audio23.mp3'
     },
     'ytype': {
       image: './images/Ytype.png',
@@ -578,7 +582,8 @@ const buttonPage = document.querySelector('.details-description1 button');
       description: [
         'Sliding Rails option in RV is very useful for cleaning of valve with ease and less effort',
         'It is available for Exec.2 and dairy versions'
-      ]
+      ],
+      audio:'./audios/audio29.mp3'
     },
     'scale': {
       image: './images/Scale valve.webp',
@@ -586,7 +591,8 @@ const buttonPage = document.querySelector('.details-description1 button');
       description: [
         'Scale Valve (SV-A  also known as a Bottom Diverter or Fill Vent Diverter) is a pneumatically actuated diversion valve designed to divert bulk solids during  pneumatic transport.   ',
         'It is designed for applications like dosing, weighing, batching and filling.'
-      ]
+      ],
+      audio:'./audios/audio30.mp3'
     },
     'lsv': {
       image: './images/Scale valve.webp',
@@ -594,20 +600,22 @@ const buttonPage = document.querySelector('.details-description1 button');
       description: [
         'Scale Valve (SV-A  also known as a Bottom Diverter or Fill Vent Diverter) is a pneumatically actuated diversion valve designed to divert bulk solids during  pneumatic transport.   ',
         'It is designed for applications like dosing, weighing, batching and filling.'
-      ]
+      ],
+      audio:'./audios/audio36.mp3'
     },
     'bypass': {
-      image: './images/bypass.png',
+      image: './images/bypass.webp',
       title: 'By Pass valve',
       description: [
         'By-Pass Valve (BPV) is also called as “Air Only Diverter” specifically designed to divert the air in pneumatic conveying systems.',
         'This is typically used in Lean Phase Pneumatic Conveying Systems for both pressure and vacuum conveying applications.'
-      ]
+      ],
+      audio:'./audios/audio37.mp3'
     },
   };
- 
+
   let bool = true
- 
+
   function setActiveSegment(segmentName) {
     buttonPage.style.display = 'block';
     needhide.style.display = 'none';
@@ -618,11 +626,20 @@ const buttonPage = document.querySelector('.details-description1 button');
     segments.forEach(seg => {
       seg.classList.toggle('active', seg.dataset.segment === segmentName);
     });
- 
- 
+
+
     const valve = valveMap[segmentName];
     if (valve) {
       valveImage.src = valve.image;
+      const audio = document.getElementById('slide-audio');
+      audio.src=valve.audio
+      audio.currentTime = 0;
+
+      audio.play().catch(e => {
+        document.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
       valveImage.style.height = "80%";
       diverterTitle.innerHTML = `<div class="red-dot"></div> ${valve.title}`;
       featureList.innerHTML = '';
@@ -634,21 +651,21 @@ const buttonPage = document.querySelector('.details-description1 button');
       detailsDescription.style.display = 'block';
     }
   }
- 
+
   labels.forEach(label => {
     label.addEventListener('click', () => {
       const segmentName = label.dataset.segment;
       setActiveSegment(segmentName);
     });
   });
- 
+
   segments.forEach(segment => {
     segment.addEventListener('click', () => {
       const segmentName = segment.dataset.segment;
       setActiveSegment(segmentName);
     });
   });
- 
+
   buttonPage.addEventListener('click', () => {
     segments.forEach(seg => {
       if (seg.classList.contains('active')) {
@@ -664,16 +681,16 @@ const buttonPage = document.querySelector('.details-description1 button');
         } else if (segmentName === 'ytype') {
           scrollToPage(29);
         } else if (segmentName === 'scale') {
-          scrollToPage(35);
+          scrollToPage(30);
         } else if (segmentName === 'lsv') {
-          scrollToPage(41);
+          scrollToPage(36);
         } else if (segmentName === 'bypass') {
-          scrollToPage(47);
+          scrollToPage(37);
         }
       }
     });
   });
- 
+
 
   // setActiveSegment('dtd');
 
@@ -801,28 +818,28 @@ const buttonPage = document.querySelector('.details-description1 button');
     "ATEX / IECEX Rated Electrical Components"
   ];
 
-  const featurescale = document.getElementById('unorderlist-fea-scale');
-  const featurescale1 = document.getElementById('unorderlist-fea-scale-1');
-  const optionscale = document.getElementById('unorderlist-opt-scale');
+  // const featurescale = document.getElementById('unorderlist-fea-scale');
+  // const featurescale1 = document.getElementById('unorderlist-fea-scale-1');
+  // const optionscale = document.getElementById('unorderlist-opt-scale');
 
-  featuresscale.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featurescale.appendChild(li);
-  });
+  // featuresscale.forEach((featur) => {
+  //   const li = document.createElement('li');
+  //   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  //   featurescale.appendChild(li);
+  // });
 
-  featuresscale1.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featurescale1.appendChild(li);
-  });
+  // featuresscale1.forEach((featur) => {
+  //   const li = document.createElement('li');
+  //   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  //   featurescale1.appendChild(li);
+  // });
 
 
-  optionsscale.forEach((feature) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
-    optionscale.appendChild(li);
-  });
+  // optionsscale.forEach((feature) => {
+  //   const li = document.createElement('li');
+  //   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+  //   optionscale.appendChild(li);
+  // });
 
 
   const featuresby = [
@@ -840,232 +857,234 @@ const buttonPage = document.querySelector('.details-description1 button');
     "ATEX / IECEX Rated Electrical Components"
   ];
 
-  const featureby = document.getElementById('unorderlist-fea-by');
-  const featureby1 = document.getElementById('unorderlist-fea-by-1');
-  const optionby = document.getElementById('unorderlist-opt-by');
+  //   const featureby = document.getElementById('unorderlist-fea-by');
+  //   const featureby1 = document.getElementById('unorderlist-fea-by-1');
+  //   const optionby = document.getElementById('unorderlist-opt-by');
 
-  featuresby.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featureby.appendChild(li);
-  });
+  //   featuresby.forEach((featur) => {
+  //     const li = document.createElement('li');
+  //     li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  //     featureby.appendChild(li);
+  //   });
 
-  featuresby1.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featureby1.appendChild(li);
-  });
+  //   featuresby1.forEach((featur) => {
+  //     const li = document.createElement('li');
+  //     li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  //     featureby1.appendChild(li);
+  //   });
 
 
-  optionsby.forEach((feature) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
-    optionby.appendChild(li);
-  });
+  //   optionsby.forEach((feature) => {
+  //     const li = document.createElement('li');
+  //     li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+  //     optionby.appendChild(li);
+  //   });
 
 });
 
 // sdtd features
 
-  const featuresSDTC = [
-    "Housing, Drum & End Covers in Aluminum using High Quality Gravity Die Casting Process",
-    "Product Contact Surface in Stainless Steel 316L",
-    "Single Tunnel",
-    "Pneumatic Actuator Operated",
-    "Can be Installed in any Orientation",
-    "No External Moving Parts",
-    "Easy to Maintain",
-    "ATEX Approved",
-  ];
+const featuresSDTC = [
+  "Housing, Drum & End Covers in Aluminum using High Quality Gravity Die Casting Process",
+  "Product Contact Surface in Stainless Steel 316L",
+  "Single Tunnel",
+  "Pneumatic Actuator Operated",
+  "Can be Installed in any Orientation",
+  "No External Moving Parts",
+  "Easy to Maintain",
+  "ATEX Approved",
+];
 
-  const optionsSDTC = [
-    "High Temperature Modification",
-    "ATEX / IECEX Rated Electrical Components",
-    "SDTD - Hard Chrome Coating on Product Contact Surface",
-    "SDTD - Tungsten Carbide Coating on Product Contact Surface",
-    "SDTD - Hardox Liner",
-  ];
+const optionsSDTC = [
+  "High Temperature Modification",
+  "ATEX / IECEX Rated Electrical Components",
+  "SDTD - Hard Chrome Coating on Product Contact Surface",
+  "SDTD - Tungsten Carbide Coating on Product Contact Surface",
+  "SDTD - Hardox Liner",
+];
 
-  const featureSDTC = document.getElementById('sdtc_Feature');
-  const optionSDTC = document.getElementById('sdtc_Option');
+const featureSDTC = document.getElementById('sdtc_Feature');
+const optionSDTC = document.getElementById('sdtc_Option');
 
-  featuresSDTC.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featureSDTC.appendChild(li);
-  });
+featuresSDTC.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  featureSDTC.appendChild(li);
+});
 
 
-  optionsSDTC.forEach((feature) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
-    optionSDTC.appendChild(li);
-  });
+optionsSDTC.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+  optionSDTC.appendChild(li);
+});
 
 // scale valve features
 
-  const featuresSV = [
-    "Compact Design",
-    "Optimal Sealing",
-    "Minimal Process Loss",
-    "Pneumatic Actuator Operated",
-    "Simple Construction with Minimal Contact Area",
-    "Available in Cast Iron and Stainless Steel 304 construction",
-  ];
+const featuresSV = [
+  "Compact Design",
+  "Optimal Sealing",
+  "Minimal Process Loss",
+  "Pneumatic Actuator Operated",
+  "Simple Construction with Minimal Contact Area",
+  "Available in Cast Iron and Stainless Steel 304 construction",
+];
 
-  const optionsSV = [
-    "ATEX / IECEX Rated Electrical Components",
-  ];
+const optionsSV = [
+  "ATEX / IECEX Rated Electrical Components",
+];
 
-  const featureSV = document.getElementById('sv_Feature');
-  const optionSV = document.getElementById('sv_Options');
+const featureSV = document.getElementById('sv_Feature');
+const optionSV = document.getElementById('sv_Options');
 
-  featuresSV.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featureSV.appendChild(li);
-  });
+featuresSV.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  featureSV.appendChild(li);
+});
 
 
-  optionsSV.forEach((feature) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
-    optionSV.appendChild(li);
-  });
+optionsSV.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+  optionSV.appendChild(li);
+});
 
 // by pass valve features
 
-  const featuresBPV = [
-    "Construction in Cast Aluminum",
-    "Economical Quality Product",
-    "Can be installed in any positions",
-    "Pneumatic Cylinder Operated",
-  ];
+const featuresBPV = [
+  "Construction in Cast Aluminum",
+  "Economical Quality Product",
+  "Can be installed in any positions",
+  "Pneumatic Cylinder Operated",
+];
 
-  const optionsBPV = [
-    "MOC in Stainless Steel 304",
-    "ATEX / IECEX Rated Electrical Components",
-  ];
+const optionsBPV = [
+  "MOC in Stainless Steel 304",
+  "ATEX / IECEX Rated Electrical Components",
+];
 
-  const featureBPV = document.getElementById('bpv_Features');
-  const optionBPV = document.getElementById('bpv_Options');
+const featureBPV = document.getElementById('bpv_Features');
+const optionBPV = document.getElementById('bpv_Options');
 
-  featuresBPV.forEach((featur) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
-    featureBPV.appendChild(li);
-  });
+featuresBPV.forEach((featur) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+  featureBPV.appendChild(li);
+});
 
 
-  optionsBPV.forEach((feature) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
-    optionBPV.appendChild(li);
-  });
+optionsBPV.forEach((feature) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+  optionBPV.appendChild(li);
+});
+
+
+// y type valve features
+
+// const featuresyType = [
+//   "Construction in Cast Aluminum",
+//   "Economical Quality Product",
+//   "Can be installed in any positions",
+//   "Pneumatic Cylinder Operated",
+// ];
+
+// const optionsyType = [
+//   "MOC in Stainless Steel 304",
+//   "ATEX / IECEX Rated Electrical Components",
+// ];
+
+// const featureyType = document.getElementById('ytype_Features');
+// const optionyType = document.getElementById('ytype_Options');
+
+// featuresyType.forEach((featur) => {
+//   const li = document.createElement('li');
+//   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+//   featureyType.appendChild(li);
+// });
+
+
+// optionsyType.forEach((feature) => {
+//   const li = document.createElement('li');
+//   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+//   optionyType.appendChild(li);
+// });
+
+
+
+// lsv valve features
+
+// const featuresLsv = [
+//   "Construction in Cast Aluminum",
+//   "Economical Quality Product",
+//   "Can be installed in any positions",
+//   "Pneumatic Cylinder Operated",
+// ];
+
+// const optionsLsv = [
+//   "MOC in Stainless Steel 304",
+//   "ATEX / IECEX Rated Electrical Components",
+// ];
+
+// const featureLsv = document.getElementById('lsv_Feature');
+// const optionLsv = document.getElementById('lsv_Options');
+
+// featuresLsv.forEach((featur) => {
+//   const li = document.createElement('li');
+//   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${featur}`;
+//   featureLsv.appendChild(li);
+// });
+
+
+// optionsLsv.forEach((feature) => {
+//   const li = document.createElement('li');
+//   li.innerHTML = `<img src="./images/Vector.png" class="bullet-icon" alt=""> ${feature}`;
+//   optionLsv.appendChild(li);
+// });
 
 
 
 let pagelatest = 0;
 function playAudioForPage(pageNumber) {
   if (pageNumber != pagelatest) {
-    pagelatest = pageNumber
+    pagelatest = pageNumber;
   } else {
-    return
+    return;
   }
+
   const audio = document.getElementById('slide-audio');
   if (!audio) return;
-  audio.onended = null;
-  audio.pause();
-  audio.src = `./audios/audio${pageNumber}.mp3`;
-  audio.currentTime = 0;
-  audio.play();
 
-  audio.play().catch(e => {
-    document.addEventListener("click", () => {
-      audio.play();
-    }, { once: true });
-  });
-}
+  const audioSrc = `./audios/audio${pageNumber}.mp3`;
 
+  // Check if the audio file exists before setting the source
+  fetch(audioSrc, { method: 'HEAD' })
+    .then(response => {
+      if (!response.ok) {
+        console.warn(`Audio file not found: ${audioSrc}`);
+        return;
+      }
 
+      audio.onended = null;
+      audio.pause();
+      audio.src = audioSrc;
+      audio.currentTime = 0;
 
-
-// -------------------------------------- Cursor animation  ----------------------------------------
-
-const cursor = document.querySelector(".custom-cursor");
-const mousePosition = { x: -100, y: -100 };
-let isMoving = false;
-let isMouseDown = false;
-let animationFrameId = null;
-
-window.addEventListener("mousemove", (e) => {
-  mousePosition.x = e.clientX;
-  mousePosition.y = e.clientY;
-
-  gsap.to(cursor, {
-    x: mousePosition.x,
-    y: mousePosition.y,
-    duration: 0.8,
-    ease: "power2.out"
-  });
-
-  isMoving = true;
-  if (window.movementTimeout) clearTimeout(window.movementTimeout);
-  window.movementTimeout = setTimeout(() => {
-    isMoving = false;
-  }, 500);
-});
-
-window.addEventListener("mousedown", () => {
-  isMouseDown = true;
-  gsap.to(cursor, {
-    width: 50,
-    height: 50,
-    borderColor: "#1bf8c7",
-    boxShadow: "0 0 25px rgba(255, 255, 255, 0.84)",
-    duration: 0.2,
-    ease: "power2.out"
-  });
-});
-
-window.addEventListener("mouseup", () => {
-  isMouseDown = false;
-  gsap.to(cursor, {
-    width: 25,
-    height: 25,
-    borderColor: "#fff",
-    boxShadow: "none",
-    duration: 0.2,
-    ease: "power2.out"
-  });
-});
-
-function updateTrail() {
-  const trailSegments = document.querySelectorAll(".trail-segment");
-  trailSegments.forEach((segment, index) => {
-    const delay = (index + 1) * 0.05;
-    gsap.to(segment, {
-      x: mousePosition.x,
-      y: mousePosition.y,
-      duration: 0.3,
-      delay,
-      opacity: isMoving || isMouseDown ? 1 - index / trailSegments.length : 0,
-      ease: "power2.out",
-      scale: 1 + index / trailSegments.length,
-      boxShadow:
-        isMoving || isMouseDown
-          ? `0 0 10px rgba(255, 255, 255, ${0.2 + index / trailSegments.length})`
-          : "none"
+      audio.play().catch(e => {
+        // User interaction fallback for autoplay restrictions
+        document.addEventListener("click", () => {
+          audio.play();
+        }, { once: true });
+      });
+    })
+    .catch(error => {
+      console.error('Error checking audio file:', error);
     });
-  });
 }
 
-function animateTrail() {
-  updateTrail();
-  animationFrameId = requestAnimationFrame(animateTrail);
-}
 
-animateTrail();
+
 
 
 
@@ -1116,7 +1135,8 @@ let previous = 0;
 function animation(page) {
 
   if (previous == page) return
-  const animatedPages = [4, 7, 8, 11, 16, 21, 24, 26, 29, 33];
+    const animatedPages = [7,13,19,25,32,39];
+  const faqAnimation = [10, 16, 22, 28, 35, 42]
   if (page == "2" && previous != page) {
     gsap.set(".spec-header-row", { opacity: 0, x: -100 });
     gsap.set(".left-column", { opacity: 0, x: -100 });
@@ -1187,19 +1207,15 @@ function animation(page) {
       });
   } else if (animatedPages.includes(page)) {
     const listDivs = {
-      4: 'fourthSlide',
-      // 7: 'fifthSlide',
-      8: 'detailsSlide',
-      11: 'tweleveSlide',
-      16: 'detailsSlidenew9',
-      21: 'detailsSlidenew',
-      24: 'sevenSlide',
-      26: 'eightSlide',
-      29: 'twentiethSlide',
-      33: 'seventeenthSlide'
+      7: 'dtdfo',
+      13: 'details-slide-new9',
+      19: 'fosdtd',
+      25: 'fosdtdc',
+      32: 'scalevalve',
+      39: 'bypassfo'
     };
 
-    const containerId = `#${listDivs[page]}`;
+    const containerId = `.${listDivs[page]}`;
 
     if (page == 7) {
       gsap.from(`#fifthSlide .details-right-column1 img`, {
@@ -1241,6 +1257,31 @@ function animation(page) {
           stagger: 0.2
         });
       }
+    });
+
+  }
+
+  if (faqAnimation.includes(page)) {
+
+    const faqdiv = {
+      10: 'thirteen-slide',
+      16: 'fifteen-slide',
+      22: 'sdtdsec',
+      28: 'sdtdcsec',
+      35: 'scalesec',
+      42: 'bypasssec',
+    };
+
+    const containerId = `.${faqdiv[page]}`;
+    gsap.set(`${containerId} .faq-item`, { x: -50, opacity: 0 });
+
+    gsap.to(`${containerId} .faq-item`, {
+      x: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.out",
+      stagger: 0.2,
+      delay: 0.5
     });
 
   }
@@ -1328,116 +1369,116 @@ tl.to(".spec-text", {
   delay: 1
 });
 
-const DTDexplodedModel = document.getElementById("DTDExploded");
-const DTDfunctionModel = document.getElementById("DTDFunction");
+// const DTDexplodedModel = document.getElementById("DTDExploded");
+// const DTDfunctionModel = document.getElementById("DTDFunction");
 
-const explodedModel = document.getElementById("BDVExploded");
-const functionModel = document.getElementById("BDVFunction");
+// const explodedModel = document.getElementById("BDVExploded");
+// const functionModel = document.getElementById("BDVFunction");
 
-const normalBtn = document.querySelectorAll(".normalBtn");
-const explodedBtn = document.querySelectorAll(".explodedBtn");
-const functionBtn = document.querySelectorAll(".functionBtn");
-const allBtns = document.querySelectorAll(".action-btns button");
+// const normalBtn = document.querySelectorAll(".normalBtn");
+// const explodedBtn = document.querySelectorAll(".explodedBtn");
+// const functionBtn = document.querySelectorAll(".functionBtn");
+// const allBtns = document.querySelectorAll(".action-btns button");
 
-function stopAnimation(model) {
-  model.animationName = null;
-  model.pause();
-}
+// function stopAnimation(model) {
+//   model.animationName = null;
+//   model.pause();
+// }
 
-function playFirstAnimation(model, time = "") {
-  if (model.availableAnimations.length > 0) {
-    model.animationName = model.availableAnimations[0];
-    model.currentTime = 0;
-    model.play();
-    if (time != "") {
-      const stopAt = time;
-      function checkTime() {
-        if (model.currentTime >= stopAt) {
-          model.pause();
-        } else {
-          requestAnimationFrame(checkTime);
-        }
-      }
-      requestAnimationFrame(checkTime);
-    }
-  }
-}
+// function playFirstAnimation(model, time = "") {
+//   if (model.availableAnimations.length > 0) {
+//     model.animationName = model.availableAnimations[0];
+//     model.currentTime = 0;
+//     model.play();
+//     if (time != "") {
+//       const stopAt = time;
+//       function checkTime() {
+//         if (model.currentTime >= stopAt) {
+//           model.pause();
+//         } else {
+//           requestAnimationFrame(checkTime);
+//         }
+//       }
+//       requestAnimationFrame(checkTime);
+//     }
+//   }
+// }
 
-DTDexplodedModel.addEventListener('load', () => stopAnimation(DTDexplodedModel));
-explodedModel.addEventListener('load', () => stopAnimation(explodedModel));
-
-
-DTDfunctionModel.addEventListener('load', () => {
-  DTDfunctionModel.currentTime = 0;
-  DTDfunctionModel.play();
-
-});
+// DTDexplodedModel.addEventListener('load', () => stopAnimation(DTDexplodedModel));
+// explodedModel.addEventListener('load', () => stopAnimation(explodedModel));
 
 
-functionModel.addEventListener('load', () => {
-  functionModel.currentTime = 0;
-  functionModel.play();
+// DTDfunctionModel.addEventListener('load', () => {
+//   DTDfunctionModel.currentTime = 0;
+//   DTDfunctionModel.play();
 
-});
-
-
-normalBtn.forEach(normbtn => {
-  normbtn.addEventListener("click", (e) => {
-    const dataId = e.target.getAttribute("data-id");
-    if (dataId === "1") {
-      DTDexplodedModel.classList.remove("hidden");
-      DTDfunctionModel.classList.add("hidden");
-      stopAnimation(DTDexplodedModel);
-    } else {
-      explodedModel.classList.remove("hidden");
-      functionModel.classList.add("hidden");
-      stopAnimation(explodedModel);
-    }
-  });
-});
-
-explodedBtn.forEach(expolodebtn => {
-  expolodebtn.addEventListener("click", (e) => {
-    const dataId = e.target.getAttribute("data-id");
-    if (dataId === "1") {
-      DTDexplodedModel.classList.remove("hidden");
-      DTDfunctionModel.classList.add("hidden");
-      playFirstAnimation(DTDexplodedModel, 5.75);
-    } else {
-      explodedModel.classList.remove("hidden");
-      functionModel.classList.add("hidden");
-      playFirstAnimation(explodedModel, 7.80);
-    }
-  });
-});
+// });
 
 
-functionBtn.forEach(funcbtn => {
-  funcbtn.addEventListener("click", (e) => {
-    const dataId = e.target.getAttribute("data-id");
-    if (dataId === "1") {
-      DTDexplodedModel.classList.add("hidden");
-      DTDfunctionModel.classList.remove("hidden");
-      playFirstAnimation(DTDfunctionModel);
-    } else {
-      explodedModel.classList.add("hidden");
-      functionModel.classList.remove("hidden");
-      playFirstAnimation(functionModel);
-    }
-  });
-});
+// functionModel.addEventListener('load', () => {
+//   functionModel.currentTime = 0;
+//   functionModel.play();
 
-allBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const dataId = e.target.getAttribute('data-id');
-    allBtns.forEach(b => {
-      if (b.getAttribute('data-id') === dataId) {
-        b.classList.remove('active-explode');
-      }
-    });
-    btn.classList.add('active-explode');
-  });
-});
+// });
+
+
+// normalBtn.forEach(normbtn => {
+//   normbtn.addEventListener("click", (e) => {
+//     const dataId = e.target.getAttribute("data-id");
+//     if (dataId === "1") {
+//       DTDexplodedModel.classList.remove("hidden");
+//       DTDfunctionModel.classList.add("hidden");
+//       stopAnimation(DTDexplodedModel);
+//     } else {
+//       explodedModel.classList.remove("hidden");
+//       functionModel.classList.add("hidden");
+//       stopAnimation(explodedModel);
+//     }
+//   });
+// });
+
+// explodedBtn.forEach(expolodebtn => {
+//   expolodebtn.addEventListener("click", (e) => {
+//     const dataId = e.target.getAttribute("data-id");
+//     if (dataId === "1") {
+//       DTDexplodedModel.classList.remove("hidden");
+//       DTDfunctionModel.classList.add("hidden");
+//       playFirstAnimation(DTDexplodedModel, 5.75);
+//     } else {
+//       explodedModel.classList.remove("hidden");
+//       functionModel.classList.add("hidden");
+//       playFirstAnimation(explodedModel, 7.80);
+//     }
+//   });
+// });
+
+
+// functionBtn.forEach(funcbtn => {
+//   funcbtn.addEventListener("click", (e) => {
+//     const dataId = e.target.getAttribute("data-id");
+//     if (dataId === "1") {
+//       DTDexplodedModel.classList.add("hidden");
+//       DTDfunctionModel.classList.remove("hidden");
+//       playFirstAnimation(DTDfunctionModel);
+//     } else {
+//       explodedModel.classList.add("hidden");
+//       functionModel.classList.remove("hidden");
+//       playFirstAnimation(functionModel);
+//     }
+//   });
+// });
+
+// allBtns.forEach(btn => {
+//   btn.addEventListener('click', (e) => {
+//     const dataId = e.target.getAttribute('data-id');
+//     allBtns.forEach(b => {
+//       if (b.getAttribute('data-id') === dataId) {
+//         b.classList.remove('active-explode');
+//       }
+//     });
+//     btn.classList.add('active-explode');
+//   });
+// });
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
@@ -1469,6 +1510,441 @@ window.addEventListener('resize', () => {
   lastInnerHeight = window.innerHeight;
 });
 
+let finalProductName = '';
+
+// Model and Button Setup
+const modelViewer = document.getElementById('modelViewer');
+const modal = document.getElementById('modelModal');
+const buttons = {
+  normal: document.getElementById('btn-normal'),
+  explode: document.getElementById('btn-explode'),
+  conversion: document.getElementById('btn-conversion'),
+  diversion: document.getElementById('btn-diversion'),
+  parts: document.getElementById('btn-parts'),
+  functions: document.getElementById('btn-function'),
+};
+
+const loadingSpinner = document.getElementById('loadingSpinner');
+
+// Product config for scalability
+const productConfig = {
+  DTD: {
+    modelPaths: {
+      normal: 'DTD/DTD_Normal_Explode.glb',
+      explode: 'DTD/DTD_Normal_Explode.glb',
+      // conversion: 'DTD/DTD_Animation.glb',
+      // diversion: 'DTD/DTD_Animation.glb',
+      functions: 'DTD/DTD_Function.gltf'
+    },
+    viewerAttributes: {
+      normal: {
+        'field-of-view': '30deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '46.98deg 90.49deg 180.7m',
+        'min-field-of-view': '36.98deg',
+        'max-field-of-view': '37.98deg'
+      },
+      explode: {
+        'field-of-view': '30deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '46.98deg 90.49deg 180.7m',
+        'min-field-of-view': '36.98deg',
+        'max-field-of-view': '37.98deg'
+      },
+      functions: {
+        'camera-orbit': '1.931deg 83.44deg 98.59m',
+        'min-field-of-view': '32.98deg',
+        'max-field-of-view': '34.98deg',
+        'field-of-view': '30deg',
+      }
+      // Add others as needed
+    },
+    animationSettings: {
+      normal: { start: 0, end: 0, loop: false, autoplay: false },
+      explode: { start: 0, end: 5.75, loop: false, autoplay: true },
+      conversion: { start: 10, end: 150, loop: true, autoplay: true },
+      diversion: { start: 190, end: 292, loop: true, autoplay: true },
+      functions: { start: 0, end: 7.80, loop: true, autoplay: true },
+      parts: { start: 0, end: 0, loop: false, autoplay: false }
+    },
+    visibleButtons: ['normal', 'explode', 'functions']
+  },
+  BDV: {
+    modelPaths: {
+      normal: 'BDV/BDVexplode.gltf',
+      explode: 'BDV/BDVexplode.gltf',
+      // conversion: 'DTD/DTD_Animation.glb',
+      // diversion: 'DTD/DTD_Animation.glb',
+      functions: 'BDV/BDVfunction.gltf'
+    },
+    viewerAttributes: {
+      normal: {
+        'min-field-of-view': '36.98deg',
+        'max-field-of-view': '37.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-609.1deg 87.55deg 1.617m'
+      },
+      explode: {
+        'min-field-of-view': '36.98deg',
+        'max-field-of-view': '37.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-609.1deg 87.55deg 1.617m'
+      },
+      functions: {
+        'min-field-of-view': '31.98deg',
+        'max-field-of-view': '32.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-5.118deg 77.76deg 2.286m'
+      }
+      // Add others as needed
+    },
+    animationSettings: {
+      normal: { start: 0, end: 0, loop: false, autoplay: false },
+      explode: { start: 0, end: 5.75, loop: false, autoplay: true },
+      conversion: { start: 10, end: 150, loop: true, autoplay: true },
+      diversion: { start: 190, end: 292, loop: true, autoplay: true },
+      functions: { start: 0, end: 8.62, loop: true, autoplay: true },
+      parts: { start: 0, end: 0, loop: false, autoplay: false }
+    },
+    visibleButtons: ['normal', 'explode', 'functions']
+  },
+  SDTD: {
+    modelPaths: {
+      normal: 'SDTD/SDTD_Normal.glb',
+      // explode: 'BDV/BDVexplode.gltf',
+      conversion: 'SDTD/SDTD_Animation.glb',
+      diversion: 'SDTD/SDTD_Animation.glb',
+      // functions: 'BDV/BDVfunction.gltf'
+    },
+    viewerAttributes: {
+      normal: {
+        'min-field-of-view': '36.98deg',
+        'max-field-of-view': '37.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-609.1deg 87.55deg 1.617m'
+      },
+      conversion: {
+        'min-field-of-view': '20.98deg',
+        'max-field-of-view': '30.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-609.1deg 87.55deg 1.617m'
+      },
+      diversion: {
+        'min-field-of-view': '20.98deg',
+        'max-field-of-view': '30.98deg',
+        'min-camera-orbit': 'auto 78deg auto',
+        'max-camera-orbit': 'auto 78deg auto',
+        'camera-orbit': '-5.118deg 77.76deg 2.286m'
+      }
+      // Add others as needed
+    },
+    animationSettings: {
+      normal: { start: 0, end: 0, loop: false, autoplay: false },
+      explode: { start: 0, end: 5.75, loop: false, autoplay: true },
+      conversion: { start: 0, end: 7.8, loop: true, autoplay: true },
+      diversion: { start: 8, end: 12.2, loop: true, autoplay: true },
+      functions: { start: 0, end: 8.62, loop: true, autoplay: true },
+      parts: { start: 0, end: 0, loop: false, autoplay: false }
+    },
+    visibleButtons: ['normal', 'conversion', 'diversion']
+  }
+
+};
+
+function setSpinnerVisibility(shouldShow) {
+  const spinner = document.getElementById('loadingSpinner');
+  const isHidden = spinner.classList.contains('hide');
+
+  if (shouldShow && isHidden) {
+    spinner.classList.remove('hide');
+  } else if (!shouldShow && !isHidden) {
+    spinner.classList.add('hide');
+  }
+}
+
+function open3DModal(productName) {
+  finalProductName = productName;
+  const config = productConfig[productName];
+
+  if (!config) {
+    console.warn(`No config found for product: ${productName}`);
+    return;
+  }
+
+  // Load default model (Normal)
+  setModalSrc(config.modelPaths.normal);
+  updateButtonVisibility(config.visibleButtons);
+
+  // modal.style.display = 'block';
+  modal.classList.add('show');
+}
+
+function closeModal() {
+  // Hide the modal
+  modal.classList.remove('show');
+
+  // Clear the model source to free memory
+  // modelViewer.src = '';
+
+  // Remove all attributes except 'id' and 'style'
+  for (const attr of modelViewer.getAttributeNames()) {
+    if (attr !== 'id' && attr !== 'style' && attr !== 'src') {
+      modelViewer.removeAttribute(attr);
+    }
+  }
+}
+
+
+// function setModalSrc(relativePath, attributes = {}) {
+//   modelViewer.src = '';
+
+//   setTimeout(() => {
+//     modelViewer.src = `./models/${relativePath}`;
+
+//     // First, clear any previously set dynamic attributes
+//     for (const attr of modelViewer.getAttributeNames()) {
+//       if (attr !== 'src' && attr !== 'id' && attr !== 'style') {
+//         modelViewer.removeAttribute(attr);
+//       }
+//     }
+
+//     // Apply new attributes
+//     for (const [key, value] of Object.entries(attributes)) {
+//       modelViewer.setAttribute(key, value);
+//     }
+
+//     // Always re-add core ones
+//     // modelViewer.setAttribute('auto-rotate', '');
+//     modelViewer.setAttribute('camera-controls', '');
+//   }, 500);
+
+// }
+
+
+function updateButtonVisibility(visibleList) {
+  Object.keys(buttons).forEach(key => {
+    if (visibleList.includes(key)) {
+      showButton(buttons[key]);
+    } else {
+      hideButton(buttons[key]);
+    }
+  });
+}
+
+function showButton(btn) {
+  if (btn) btn.style.display = 'inline-block';
+}
+
+function hideButton(btn) {
+  if (btn) btn.style.display = 'none';
+}
+
+// ✅ Add event listeners once
+buttons.normal.addEventListener("click", () => handleModelSwitch("normal"));
+buttons.explode.addEventListener("click", () => handleModelSwitch("explode"));
+buttons.conversion.addEventListener("click", () => handleModelSwitch("conversion"));
+buttons.diversion.addEventListener("click", () => handleModelSwitch("diversion"));
+buttons.parts.addEventListener("click", () => handleModelSwitch("parts"));
+buttons.functions.addEventListener("click", () => handleModelSwitch("functions"));
+
+function setModalSrc(relativePath, attributes = {}) {
+  return new Promise((resolve) => {
+    setSpinnerVisibility(true);
+
+    const newSrc = `./models/${relativePath}`;
+
+    // Compare current src with new src (use endsWith since src may be absolute URL)
+    if (modelViewer.src !== '' && modelViewer.src.endsWith(newSrc)) {
+      // Same model — update attributes only, no reload
+      for (const attr of modelViewer.getAttributeNames()) {
+        if (attr !== 'src' && attr !== 'id' && attr !== 'style') {
+          modelViewer.removeAttribute(attr);
+        }
+      }
+
+      for (const [key, value] of Object.entries(attributes)) {
+        modelViewer.setAttribute(key, value);
+      }
+
+      // Ensure camera controls attribute is present
+      modelViewer.setAttribute('camera-controls', '');
+      modelViewer.setAttribute('disable-tap', '');
+      modelViewer.setAttribute('disable-pan', '');
+
+      // Immediately resolve since no reload
+      setSpinnerVisibility(false);
+      resolve();
+      return;
+    }
+
+    // Different model — reload model viewer
+    modelViewer.src = '';
+
+    setTimeout(() => {
+      modelViewer.src = newSrc;
+
+      // Clear previous dynamic attributes
+      for (const attr of modelViewer.getAttributeNames()) {
+        if (attr !== 'src' && attr !== 'id' && attr !== 'style') {
+          modelViewer.removeAttribute(attr);
+        }
+      }
+
+      // Apply new attributes
+      for (const [key, value] of Object.entries(attributes)) {
+        modelViewer.setAttribute(key, value);
+      }
+
+      // Add core attribute
+      modelViewer.setAttribute('camera-controls', '');
+      modelViewer.setAttribute('disable-tap', '');
+      modelViewer.setAttribute('disable-pan', '');
+
+      // Wait for model to load before resolving
+      modelViewer.addEventListener('load', () => {
+        resolve();
+        setSpinnerVisibility(false);
+      }, { once: true });
+
+    }, 200); // Adjust delay if needed
+  });
+}
+
+
+async function handleModelSwitch(actionKey) {
+  if (!finalProductName || !productConfig[finalProductName]) return;
+
+  const config = productConfig[finalProductName];
+  const modelPath = config.modelPaths[actionKey];
+  const viewerAttrs = config.viewerAttributes?.[actionKey] || {};
+  const animationSettings = config.animationSettings?.[actionKey] || {};
+
+  if (modelPath) {
+    // Await model load before triggering animation
+    await setModalSrc(modelPath, viewerAttrs);
+
+    // Pause and reset before animation
+    modelViewer.pause();
+
+    if (actionKey === "normal") {
+      // Snap to frame 1 and pause
+      modelViewer.currentTime = 0;
+      modelViewer.play();
+      modelViewer.pause();
+    } else if (actionKey === "explode") {
+      playAnimationSegment({ start: animationSettings.start, end: animationSettings.end, loop: false, autoplay: true });
+    } else if (actionKey === "functions") {
+      playAnimationSegment({ start: animationSettings.start, end: animationSettings.end, loop: true, autoplay: true });
+    } else {
+      playAnimationSegment(animationSettings);
+    }
+  } else {
+    console.warn(`Model path not defined for action: ${actionKey}`);
+  }
+}
+
+function playAnimationSegment({ start = 0, end = 0, loop = false, autoplay = false }) {
+  if (!modelViewer) return;
+
+  if (modelViewer._animationLoopCancel) {
+    modelViewer._animationLoopCancel();
+  }
+
+  modelViewer.pause();
+  modelViewer.currentTime = start;
+
+  if (!autoplay || start === end) {
+    modelViewer.play();
+    setTimeout(() => modelViewer.pause(), 100);
+    return;
+  }
+
+  modelViewer.play();
+
+  let isCancelled = false;
+  modelViewer._animationLoopCancel = () => {
+    isCancelled = true;
+  };
+
+  const checkAnimationEnd = () => {
+    if (isCancelled) return;
+
+    if (modelViewer.currentTime >= end) {
+      if (loop) {
+        modelViewer.currentTime = start;
+        modelViewer.play();
+        requestAnimationFrame(checkAnimationEnd);
+      } else {
+        modelViewer.pause();
+      }
+    } else {
+      requestAnimationFrame(checkAnimationEnd);
+    }
+  };
+
+  requestAnimationFrame(checkAnimationEnd);
+}
+
+
+// function playAnimationSegment({ start = 0, end = 0, loop = false, autoplay = false }) {
+//   if (!modelViewer) return;
+
+//   // Always cancel any previous loop check
+//   if (modelViewer._animationLoopCancel) {
+//     modelViewer._animationLoopCancel();
+//   }
+
+//   // Force loop = true to handle control ourselves
+//   loop = true;
+
+//   modelViewer.pause();
+//   modelViewer.currentTime = start;
+
+//   // CASE 1: If autoplay is false (like normal or parts), play & pause quickly to set frame
+//   if (!autoplay || start === end) {
+//     modelViewer.play();
+//     setTimeout(() => modelViewer.pause(), 50); // Ensure it renders the first frame
+//     return;
+//   }
+
+//   // CASE 2: If autoplay is true (explode, conversion, etc.)
+//   modelViewer.play();
+
+//   let isCancelled = false;
+
+//   modelViewer._animationLoopCancel = () => {
+//     isCancelled = true;
+//   };
+
+//   const checkAnimationEnd = () => {
+//     if (isCancelled) return;
+
+//     if (modelViewer.currentTime >= end) {
+//       if (start === 0 && end === 5.75) {
+//         // Specific case for 'explode': play once, then pause (even though loop is true internally)
+//         modelViewer.pause();
+//       } else {
+//         // Loop back to start for others
+//         modelViewer.currentTime = start;
+//         modelViewer.play();
+//         requestAnimationFrame(checkAnimationEnd);
+//       }
+//     } else {
+//       requestAnimationFrame(checkAnimationEnd);
+//     }
+//   };
+
+//   requestAnimationFrame(checkAnimationEnd);
+// }
+
+
 window.addEventListener("load", () => {
   const preloader = document.getElementById("globalPreloader");
   const models = Array.from(document.querySelectorAll("model-viewer"));
@@ -1486,8 +1962,8 @@ window.addEventListener("load", () => {
   Promise.race([Promise.all(modelPromises), timeoutFallback]).then(() => {
 
     setTimeout(() => {
-      DTDfunctionModel.classList.add("hidden");
-      functionModel.classList.add("hidden");
+      // DTDfunctionModel.classList.add("hidden");
+      // functionModel.classList.add("hidden");
 
       preloader.style.transition = "opacity 0.5s ease";
       preloader.style.opacity = "0";
@@ -1506,5 +1982,66 @@ window.addEventListener("load", () => {
   //   }
   // });
 
+
   pageInput.addEventListener("input", () => { userChangedInput = false; })
+
+
 });
+
+// -------------------------------------- Cursor animation  ----------------------------------------
+
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+const cursorTrail = document.getElementById('cursorTrail');
+
+let mouseX = 0;
+let mouseY = 0;
+let trailX = 0;
+let trailY = 0;
+let ringX = 0;
+let ringY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursor.style.left = mouseX - 10 + 'px';
+  cursor.style.top = mouseY - 10 + 'px';
+});
+
+
+function animateCursorElements() {
+  trailX += (mouseX - trailX) * 0.08;
+  trailY += (mouseY - trailY) * 0.08;
+  cursorTrail.style.left = trailX - 4 + 'px';
+  cursorTrail.style.top = trailY - 4 + 'px';
+
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+  cursorRing.style.left = ringX - 17.5 + 'px';
+  cursorRing.style.top = ringY - 17.5 + 'px';
+
+  requestAnimationFrame(animateCursorElements);
+}
+
+document.querySelectorAll('button, a, .interactive').forEach(element => {
+  element.addEventListener('mouseenter', () => {
+    cursor.classList.add('hover');
+    cursorRing.classList.add('hover');
+  });
+
+  element.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+    cursorRing.classList.remove('hover');
+  });
+});
+
+document.addEventListener('mousedown', () => {
+  cursor.classList.add('click');
+});
+
+document.addEventListener('mouseup', () => {
+  cursor.classList.remove('click');
+});
+
+animateCursorElements();
