@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Sealing options include static silicone (up to 2 bar) and dynamic silicone (up to 6 bar) based on pressure needs',
         'Available in sizes ranging from 50 mm to 200 mm for versatile system integration'
       ],
-      audio:'./audios/audio1.mp3'
+      audio:'./audios/audio5.mp3'
     },
     'bdv': {
       image: './images/BDV_Product.webp',
