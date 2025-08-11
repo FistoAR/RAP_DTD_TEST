@@ -14,7 +14,7 @@ const textBottom = document.querySelector('.text:last-child');
 const valveLetter = document.querySelector('.valve-letter');
 const pageInput = document.querySelector('.pageInput');
 const navSelect = document.getElementById('navSelect');
-const set = new Set([2, 3, 4, 5, 11, 17, 23, 29, 30, 36, 37]);
+const set = new Set([2, 3, 4, 5, 11, 17, 23, 29, 30, 35, 36]);
 const pageIndicator = document.querySelector('.page-indicator');
 const socialIcons = document.querySelector('.social-icons');
 let userChangedInput = false;
@@ -58,7 +58,7 @@ const slides = [
   { id: 'sixteenthSlide', flag: 'hasShownSixteenthSlide', done: 'sixteenthSlideAnimationCompleted', line: '#sixteenthSlide .sixteenth-vertical-line' },
   { id: 'seventeenthSlide', flag: 'hasShownSeventeenthSlide', done: 'seventeenthSlideAnimationCompleted', line: '#seventeenthSlide .seventeenth-vertical-line' },
   { id: 'seventeenthSlide-new', flag: 'hasShownSeventeenthSlide-new', done: 'seventeenthSlide-newAnimationCompleted' },
-  { id: 'SCALEModel', flag: 'hasShownDetailsSCALEModel', done: 'SCALEModelAnimationCompleted' },
+  // { id: 'SCALEModel', flag: 'hasShownDetailsSCALEModel', done: 'SCALEModelAnimationCompleted' },
   { id: 'fourteenSlide-new2', flag: 'hasShownFourteenSlide-new2', done: 'fourteenSlide-new2AnimationCompleted', line: '#fourteenSlide-new2 .fourteen-vertical-line' },
   { id: 'lsvHome', flag: 'hasShownLsvHome', done: 'lsvHomeAnimationCompleted' },
   // { id: 'new-nineteenthSlide', flag: 'hasShownNew-nineteenthSlide', done: 'new-nineteenthSlideAnimationCompleted', line: '#new-nineteenthSlide .new-nineteenth-vertical-line' },
@@ -70,7 +70,7 @@ const slides = [
   { id: 'nineteenthSlide', flag: 'hasShownNineteenthSlide', done: 'nineteenthSlideAnimationCompleted', line: '#nineteenthSlide .nineteenth-vertical-line' },
   { id: 'twentiethSlide', flag: 'hasShownTwentiethSlide', done: 'twentiethSlideAnimationCompleted', line: '#twentiethSlide .twentieth-vertical-line' },
   { id: 'twentiethSlide-new', flag: 'hasShownTwentiethSlide-new', done: 'twentiethSlide-newAnimationCompleted' },
-  { id: 'BYPASSModel', flag: 'hasShownDetailsBYPASSModel', done: 'BYPASSModelAnimationCompleted' },
+  // { id: 'BYPASSModel', flag: 'hasShownDetailsBYPASSModel', done: 'BYPASSModelAnimationCompleted' },
   { id: 'fourteenSlide-new4', flag: 'hasShownFourteenSlide-new4', done: 'fourteenSlide-new4AnimationCompleted', line: '#fourteenSlide-new4 .fourteen-vertical-line' },
   { id: 'thankyou', flag: 'hasShownThankyou', done: 'thankyouAnimationCompleted' },
 
@@ -426,8 +426,8 @@ const pageMapping = {
   '.sdtd-c-home': 23,
   '.ytypehome': 29,
   '.scalehome': 30,
-  '.lsvhome': 36,
-  '.bypasshome': 37
+  '.lsvhome': 35,
+  '.bypasshome': 36
 };
 
 
@@ -683,9 +683,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (segmentName === 'scale') {
           scrollToPage(30);
         } else if (segmentName === 'lsv') {
-          scrollToPage(36);
+          scrollToPage(35);
         } else if (segmentName === 'bypass') {
-          scrollToPage(37);
+          scrollToPage(36);
         }
       }
     });
@@ -1053,12 +1053,20 @@ function playAudioForPage(pageNumber) {
     return;
   }
 
+  let audiopage=pageNumber;
+
   const audio = document.getElementById('slide-audio');
   if (!audio) return;
+  if(audiopage>33){
+    audiopage=audiopage+1;
 
-  const audioSrc = `./audios/audio${pageNumber}.mp3`;
+    if(audiopage==41){
+        audiopage=audiopage+1;
+    }
+  }
 
-  // Check if the audio file exists before setting the source
+  const audioSrc = `./audios/audio${audiopage}.mp3`;
+
   fetch(audioSrc, { method: 'HEAD' })
     .then(response => {
       if (!response.ok) {
@@ -1072,7 +1080,6 @@ function playAudioForPage(pageNumber) {
       audio.currentTime = 0;
 
       audio.play().catch(e => {
-        // User interaction fallback for autoplay restrictions
         document.addEventListener("click", () => {
           audio.play();
         }, { once: true });
@@ -1135,8 +1142,8 @@ let previous = 0;
 function animation(page) {
 
   if (previous == page) return
-    const animatedPages = [7,13,19,25,32,39];
-  const faqAnimation = [10, 16, 22, 28, 35, 42]
+    const animatedPages = [7,13,19,25,32,38];
+  const faqAnimation = [10, 16, 22, 28, 34, 41]
   if (page == "2" && previous != page) {
     gsap.set(".spec-header-row", { opacity: 0, x: -100 });
     gsap.set(".left-column", { opacity: 0, x: -100 });
@@ -1212,7 +1219,7 @@ function animation(page) {
       19: 'fosdtd',
       25: 'fosdtdc',
       32: 'scalevalve',
-      39: 'bypassfo'
+      38: 'bypassfo'
     };
 
     const containerId = `.${listDivs[page]}`;
